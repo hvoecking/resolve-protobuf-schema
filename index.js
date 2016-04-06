@@ -2,9 +2,36 @@ var schema = require('protocol-buffers-schema')
 var fs = require('fs')
 var path = require('path')
 
+function mapBy(array, attribute, fn) {
+  var grouped = {}
+  array.map(function(item) {
+    var key = item[attribute]
+    grouped[key] = (grouped[key] || []).concat([item])
+  })
+  var results = []
+  Object.keys(grouped).forEach(function(key) {
+    results.push(fn(key, grouped[key], grouped))
+  })
+  return results
+}
+
 var merge = function(a, b) {
-  a.messages = a.messages.concat(b.messages)
+  var messages = a.messages.concat(b.messages)
+  a.messages = mapBy(messages, 'fullName', function(fullName, messageGroup) {
+    var fields = []
+    messageGroup.map(function(message) {
+      fields = fields.concat(message.fields)
+    })
+
+    var merged = messageGroup[0]
+    merged.fields = mapBy(fields, 'name', function(name, fieldGroup) {
+      return fieldGroup[0]
+    })
+    return merged
+  })
+
   a.enums = a.enums.concat(b.enums)
+
   return a
 }
 

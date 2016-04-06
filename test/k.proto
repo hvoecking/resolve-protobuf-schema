@@ -1,0 +1,7 @@
+import "h.proto";
+import "i.proto";
+import "j.proto";
+
+message K {
+  optional H k = 1;
+}

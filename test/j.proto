@@ -1,0 +1,7 @@
+import "h.proto";
+
+message J {
+  extend H {
+    optional string j = 101;
+  }
+}

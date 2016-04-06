@@ -1,0 +1,4 @@
+message H {
+  extensions 100 to 200;
+  optional string h = 1;
+}

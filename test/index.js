@@ -76,3 +76,63 @@ test('d imports e imports f from external proto paths', function(t, schema) {
     })
   })
 })
+
+test('h', function(t, schema) {
+  schema(__dirname+'/h.proto', function(err, sch) {
+    t.notOk(err, 'no err')
+    t.same(sch.messages.length, 1)
+    schema(__dirname+'/h', function(err, sch) {
+      t.notOk(err, 'no err')
+      t.same(sch.messages.length, 1)
+      t.end()
+    })
+  })
+})
+
+test('i extends h', function(t, schema) {
+  schema(__dirname+'/i.proto', function(err, sch) {
+    t.notOk(err, 'no err')
+    t.same(sch.messages.length, 2)
+    schema(__dirname+'/i', function(err, sch) {
+      t.notOk(err, 'no err')
+      t.same(sch.messages.length, 2)
+      t.end()
+    })
+  })
+})
+
+test('j extends h', function(t, schema) {
+  schema(__dirname+'/j.proto', function(err, sch) {
+    t.notOk(err, 'no err')
+    t.same(sch.messages.length, 2)
+    schema(__dirname+'/j', function(err, sch) {
+      t.notOk(err, 'no err')
+      t.same(sch.messages.length, 2)
+      t.end()
+    })
+  })
+})
+
+test('k has field of type i and j', function(t, schema) {
+  function check(sch) {
+    var messageH = sch.messages.filter(function(message) {
+     return message.fullName === 'H'
+    })
+    t.same(messageH.length, 1)
+    var hMessages = messageH[0].fields.map(function(message) {
+      return message.name
+    })
+    t.notSame(hMessages.indexOf('i'), -1)
+    t.notSame(hMessages.indexOf('j'), -1)
+  }
+
+  schema(__dirname+'/k.proto', function(err, sch) {
+    t.notOk(err, 'no err')
+    check(sch)
+    schema(__dirname+'/k', function(err, sch) {
+      t.notOk(err, 'no err')
+      check(sch)
+      t.end()
+    })
+  })
+})
