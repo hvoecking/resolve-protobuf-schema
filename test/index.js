@@ -136,3 +136,17 @@ test('k has field of type i and j', function(t, schema) {
     })
   })
 })
+
+test('enums are not duplicated', function(t, schema) {
+  t.timeoutAfter(1000);
+  schema(__dirname+'/duplication/top.proto', function(err, sch) {
+    t.notOk(err, 'no err')
+    t.same(sch, require('./duplication/top.json'))
+    schema(__dirname+'/duplication/top', function(err, sch) {
+      t.notOk(err, 'no err')
+      if (!t.calledEnd) {
+        t.end()
+      }
+    })
+  })
+})

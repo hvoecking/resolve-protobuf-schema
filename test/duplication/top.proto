@@ -1,0 +1,24 @@
+import "base.proto";
+import "extension.a.proto";
+import "extension.b.proto";
+import "layer.a.proto";
+import "layer.b.proto";
+import "layer.c.proto";
+import "layer.d.proto";
+
+message Top {
+    optional test.duplication.BaseA basea = 1;
+    optional test.duplication.BaseB baseb = 2;
+
+    optional Layer1a layer1a = 3;
+    optional Layer2a layer2a = 4;
+
+    optional Layer1b layer1b = 5;
+    optional Layer2b layer2b = 6;
+
+    optional Layer1c layer1c = 7;
+    optional Layer2c layer2c = 8;
+
+    optional Layer1d layer1d = 9;
+    optional Layer2d layer2d = 10;
+}

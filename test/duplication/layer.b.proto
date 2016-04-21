@@ -1,0 +1,14 @@
+import "base.proto";
+import "extension.a.proto";
+import "extension.b.proto";
+import "layer.a.proto";
+
+message Layer1b {
+    optional test.duplication.BaseA request = 1;
+    optional test.duplication.BaseB response = 2;
+}
+
+message Layer2b {
+    optional Layer1a la = 1;
+    optional Layer1b lb = 2;
+}

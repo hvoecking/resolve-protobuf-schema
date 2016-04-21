@@ -1,0 +1,8 @@
+import "base.proto";
+
+message ExtensionA {
+    extend test.duplication.BaseA {
+        optional string s100 = 100;
+        optional string s101 = 101;
+    }
+}

@@ -1,0 +1,579 @@
+{
+  "syntax": 3,
+  "enums": [
+    {
+      "name": "test.duplication.BaseEnum",
+      "values": {
+        "A": 1,
+        "B": 2,
+        "C": 3
+      },
+      "fullName": "test.duplication.BaseEnum"
+    }
+  ],
+  "messages": [
+    {
+      "name": "test.duplication.BaseA",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "s1",
+          "type": "string",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s2",
+          "type": "string",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s100",
+          "type": "string",
+          "tag": 100,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s101",
+          "type": "string",
+          "tag": 101,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": {
+        "from": 100,
+        "to": 200
+      },
+      "fullName": "test.duplication.BaseA"
+    },
+    {
+      "name": "test.duplication.BaseB",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "s1",
+          "type": "string",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s2",
+          "type": "string",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s100",
+          "type": "string",
+          "tag": 100,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "s101",
+          "type": "string",
+          "tag": 101,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": {
+        "from": 100,
+        "to": 200
+      },
+      "fullName": "test.duplication.BaseB"
+    },
+    {
+      "name": "ExtensionA",
+      "enums": [],
+      "extends": [
+        {
+          "name": "test.duplication.BaseA",
+          "message": {
+            "name": "test.duplication.BaseA",
+            "enums": [],
+            "extends": [],
+            "messages": [],
+            "fields": [
+              {
+                "name": "s100",
+                "type": "string",
+                "tag": 100,
+                "map": null,
+                "oneof": null,
+                "required": false,
+                "repeated": false,
+                "options": {}
+              },
+              {
+                "name": "s101",
+                "type": "string",
+                "tag": 101,
+                "map": null,
+                "oneof": null,
+                "required": false,
+                "repeated": false,
+                "options": {}
+              }
+            ],
+            "extensions": null,
+            "fullName": "ExtensionA"
+          }
+        }
+      ],
+      "messages": [],
+      "fields": [],
+      "extensions": null,
+      "fullName": "ExtensionA"
+    },
+    {
+      "name": "ExtensionB",
+      "enums": [],
+      "extends": [
+        {
+          "name": "test.duplication.BaseB",
+          "message": {
+            "name": "test.duplication.BaseB",
+            "enums": [],
+            "extends": [],
+            "messages": [],
+            "fields": [
+              {
+                "name": "s100",
+                "type": "string",
+                "tag": 100,
+                "map": null,
+                "oneof": null,
+                "required": false,
+                "repeated": false,
+                "options": {}
+              },
+              {
+                "name": "s101",
+                "type": "string",
+                "tag": 101,
+                "map": null,
+                "oneof": null,
+                "required": false,
+                "repeated": false,
+                "options": {}
+              }
+            ],
+            "extensions": null,
+            "fullName": "ExtensionB"
+          }
+        }
+      ],
+      "messages": [],
+      "fields": [],
+      "extensions": null,
+      "fullName": "ExtensionB"
+    },
+    {
+      "name": "Layer1a",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "request",
+          "type": "test.duplication.BaseA",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "response",
+          "type": "test.duplication.BaseB",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer1a"
+    },
+    {
+      "name": "Layer2a",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "la",
+          "type": "Layer1a",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer2a"
+    },
+    {
+      "name": "Layer1b",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "request",
+          "type": "test.duplication.BaseA",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "response",
+          "type": "test.duplication.BaseB",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer1b"
+    },
+    {
+      "name": "Layer2b",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "la",
+          "type": "Layer1a",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lb",
+          "type": "Layer1b",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer2b"
+    },
+    {
+      "name": "Layer1c",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "request",
+          "type": "test.duplication.BaseA",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "response",
+          "type": "test.duplication.BaseB",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer1c"
+    },
+    {
+      "name": "Layer2c",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "la",
+          "type": "Layer1a",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lb",
+          "type": "Layer1b",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lc",
+          "type": "Layer1c",
+          "tag": 3,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer2c"
+    },
+    {
+      "name": "Layer1d",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "request",
+          "type": "test.duplication.BaseA",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "response",
+          "type": "test.duplication.BaseB",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer1d"
+    },
+    {
+      "name": "Layer2d",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "la",
+          "type": "Layer1a",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lb",
+          "type": "Layer1b",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "lc",
+          "type": "Layer1c",
+          "tag": 3,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "ld",
+          "type": "Layer1d",
+          "tag": 4,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Layer2d"
+    },
+    {
+      "name": "Top",
+      "enums": [],
+      "extends": [],
+      "messages": [],
+      "fields": [
+        {
+          "name": "basea",
+          "type": "test.duplication.BaseA",
+          "tag": 1,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "baseb",
+          "type": "test.duplication.BaseB",
+          "tag": 2,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer1a",
+          "type": "Layer1a",
+          "tag": 3,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer2a",
+          "type": "Layer2a",
+          "tag": 4,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer1b",
+          "type": "Layer1b",
+          "tag": 5,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer2b",
+          "type": "Layer2b",
+          "tag": 6,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer1c",
+          "type": "Layer1c",
+          "tag": 7,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer2c",
+          "type": "Layer2c",
+          "tag": 8,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer1d",
+          "type": "Layer1d",
+          "tag": 9,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        },
+        {
+          "name": "layer2d",
+          "type": "Layer2d",
+          "tag": 10,
+          "map": null,
+          "oneof": null,
+          "required": false,
+          "repeated": false,
+          "options": {}
+        }
+      ],
+      "extensions": null,
+      "fullName": "Top"
+    }
+  ],
+  "options": {}
+}
